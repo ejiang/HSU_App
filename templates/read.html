@@ -1,0 +1,40 @@
+{% extends "base.html" %}
+
+
+{% block title %}
+HSU | Listings
+{% endblock %}
+
+
+{% block navbar %}
+<li><a href="/">Home</a></li>
+<li><a href="/about">About</a></li>
+<li class="active"><a href="/listings">Listings</a></li>
+{% endblock %}
+
+
+{% block content %}
+<!-- clean up this whole section -->
+<a href="/listings/create">Create</a>
+
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th>#</th>
+      <th>Title</th>
+      <th>Description</th>
+      <th>UUID</th>
+    </tr>
+  </thead>
+  <tbody>
+{% for l in listings %}
+    <tr>
+      <th scope="row">{{ loop.index }}</th>
+      <td>{{l[0]|e}}</td>
+      <td>{{l[1]|e}}</td>
+      <td>{{l[2]|e}}</td>
+    </tr>
+{% endfor %}
+  </tbody>
+</table>
+{% endblock %}
